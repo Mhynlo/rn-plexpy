@@ -1,0 +1,157 @@
+<%inherit file="base.html"/>
+
+<%def name="headIncludes()">
+</%def>
+
+<%def name="body()">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="padded-header" id="current-activity-header">
+                <h3>Activity</h3>
+            </div>
+            <div id="currentActivity">
+                <div class="text-muted"><i class="fa fa-refresh fa-spin"></i> Checking for activity...</div>
+                <br>
+            </div>
+        </div>
+    </div>
+    % if config['home_stats_cards']:
+    <div class="row">
+        <div class="col-md-12">
+            <div class="padded-header">
+                <h3>Watch Statistics <small>Last ${config['home_stats_length']} days</small></h3>
+            </div>
+            <div id="home-stats" class="home-platforms">
+                <div class='text-muted'><i class="fa fa-refresh fa-spin"></i> Loading stats...</div>
+                <br>
+            </div>
+        </div>
+    </div>
+    % endif
+    % if config['home_library_cards']:
+    <div class="row">
+        <div class="col-md-12">
+            <div class="padded-header" id="library-statistics-header">
+                <h3>Library Statistics <small>${config['pms_name']}</small></h3>
+            </div>
+            <div id="library-stats" class="library-platforms">
+                <div class='text-muted'><i class="fa fa-refresh fa-spin"></i> Loading stats...</div>
+                <br>
+            </div>
+        </div>
+    </div>
+    % endif
+    <div class='row'>
+        <div class="col-md-12">
+            <div class="padded-header">
+                <h3>Recently Added</h3>
+            </div>
+            <div id='recentlyAdded'>
+                <div class='text-muted'><i class="fa fa-refresh fa-spin"></i> Looking for new items...</div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+</%def>
+
+<%def name="javascriptIncludes()">
+<script src="interfaces/default/js/moment-with-locale.js"></script>
+<script>
+
+    function currentActivityHeader() {
+        $.ajax({
+            url: 'get_current_activity_header',
+            cache: false,
+            async: true,
+            complete: function(xhr, status) {
+                $("#current-activity-header").html(xhr.responseText);
+            }
+        });
+    }
+    currentActivityHeader();
+    setInterval(currentActivityHeader, 15000);
+
+    function currentActivity() {
+        $.ajax({
+            url: 'get_current_activity',
+            cache: false,
+            async: true,
+            complete: function(xhr, status) {
+                $("#currentActivity").html(xhr.responseText);
+            }
+        });
+    }
+    currentActivity();
+    setInterval(currentActivity, 15000);
+
+    function getHomeStats(days) {
+        $.ajax({
+            url: 'home_stats',
+            cache: false,
+            async: true,
+            data: { },
+            complete: function(xhr, status) {
+                $("#home-stats").html(xhr.responseText);
+            }
+        });
+    }
+
+    function getLibraryStats() {
+        $.ajax({
+            url: 'library_stats',
+            cache: false,
+            async: true,
+            data: { },
+            complete: function(xhr, status) {
+                $("#library-stats").html(xhr.responseText);
+            }
+        });
+    }
+
+    function recentlyAdded() {
+        var widthVal = $('body').find(".container-fluid").width();
+        var tmp = (widthVal-20) / 182;
+
+        if (tmp > 0) {
+            containerSize = parseInt(tmp);
+        } else {
+            containerSize = 1;
+        }
+
+        $.ajax({
+            url: 'get_recently_added',
+            type: "GET",
+            async: true,
+            data: { count : containerSize },
+            complete: function(xhr, status) {
+                $("#recentlyAdded").html(xhr.responseText);
+            }
+        });
+    }
+    $(document).ready(function () {
+        recentlyAdded();
+        $(window).resize(function() {
+            recentlyAdded();
+        });
+    });
+
+    var date_format = 'YYYY-MM-DD';
+    var time_format = 'hh:mm a';
+    $.ajax({
+        url: 'get_date_formats',
+        type: 'GET',
+        success: function(data) {
+            date_format = data.date_format;
+            time_format = data.time_format;
+        }
+    });
+
+    getHomeStats();
+    getLibraryStats();
+
+
+</script>
+
+</%def>

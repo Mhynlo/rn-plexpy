@@ -1,0 +1,13 @@
+<Application resource-id="plexpy"><!-- 'resource-id' must be AppName -->
+  <Name>PlexPy</Name>
+  <Author>Mhynlo</Author>
+  <Version>1.3.6</Version>
+  <RequireReboot>0</RequireReboot>
+  <ConfigURL/>
+  <LaunchURL>http://localhost:3033/</LaunchURL>
+  <ReservePort>3033</ReservePort>
+  <InfoURL>https://github.com/drzoidberg33/plexpy/</InfoURL>
+  <DebianPackage>plexpy</DebianPackage>
+  <ServiceName>fvapp-plexpy.service</ServiceName>
+  <Description lang="en-us">A Python based monitoring and tracking tool for Plex Media Server.</Description>
+</Application>

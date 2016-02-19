@@ -1,1 +1,1 @@
-rn-plexpy
+plexpy-1.3.6

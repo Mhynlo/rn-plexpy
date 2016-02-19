@@ -1,0 +1,16 @@
+[Unit]
+Description=Service for plexpy app
+
+[Service]
+ExecStart=/usr/bin/python /apps/plexpy/PlexPy.py --daemon --nolaunch --pidfile=/apps/plexpy/plexpy.pid --datadir /apps/plexpy/app-config --config /apps/plexpy/app-config/config.ini --port 3033
+Type=forking
+PIDFile=/apps/plexpy/plexpy.pid
+TimeoutSec=200
+KillMode=process
+Restart=on-failure
+Nice=20
+User=admin
+Group=admin
+
+[Install]
+WantedBy=multi-user.target

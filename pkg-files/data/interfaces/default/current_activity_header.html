@@ -1,0 +1,27 @@
+<%doc>
+USAGE DOCUMENTATION :: PLEASE LEAVE THIS AT THE TOP OF THIS FILE
+
+For Mako templating syntax documentation please visit: http://docs.makotemplates.org/en/latest/
+
+Filename:           current_activity_header.html
+Version:            0.1
+Variable names:     data [string]
+
+data :: Usable parameters
+
+data                Returns the current number of active streams
+
+DOCUMENTATION :: END
+</%doc>
+
+% if data != None:
+	% if data == '0':
+	<h3>Activity</h3>
+	% elif data == '1':
+	<h3>Activity <small>${data} stream</small></h3>
+	% else:
+	<h3>Activity <small>${data} streams</small></h3>
+	% endif
+% else:
+<h3>Activity</h3>
+% endif
