@@ -8,7 +8,7 @@ PIDFile=/var/run/plexpy.pid
 TimeoutSec=200
 KillMode=process
 Restart=on-failure
-Nice=20
+Nice=18
 User=admin
 Group=admin
 
