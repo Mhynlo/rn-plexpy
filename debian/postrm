@@ -18,14 +18,16 @@ set -e
 
 case "$1" in
     purge)
-       find /apps/plexpy/* -maxdepth 0 -type 'f' | grep -v "app-config" | xargs rm -f
-       find /apps/plexpy/* -maxdepth 0 -type 'd' | grep -v "app-config" | xargs rm -rf
-       if [ -f "/apps/plexpy/.localapp" ]; then
-         rm /apps/plexpy/.localapp
-       if
-       
+       rm /apps/plexpy/
        ;;
-    remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+    remove)
+        find /apps/plexpy/* -maxdepth 0 -type 'f' | grep -v "app-config" | xargs rm -f
+        find /apps/plexpy/* -maxdepth 0 -type 'd' | grep -v "app-config" | xargs rm -rf
+        if [ -f "/apps/plexpy/.localapp" ]; then
+          rm /apps/plexpy/.localapp
+        fi
+       ;;
+    upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
        ;;
 
     *)
