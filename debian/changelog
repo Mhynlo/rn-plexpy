@@ -1,3 +1,9 @@
+tautulli (2.0.22-ml2) stable; urgency=medium
+
+  * Update the migarated configuration.
+
+ -- Mhynlo <mhynlo@mhynlo.io>  Fri, 16 Mar 2018 21:48:48 -0700
+
 tautulli (2.0.22-ml1) stable; urgency=medium
 
   * upgraded to latest version of plexpy (tautulli).
