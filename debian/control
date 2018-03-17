@@ -1,13 +1,14 @@
-Source: plexpy
+Source: tautulli
 Section: contrib
 Priority: extra
 Maintainer: Mhynlo <mhynlok@gmail.com>
 Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.6
-Homepage: https://github.com/drzoidberg33/plexpy/
+Homepage: http://tautulli.com/
 
-Package: plexpy
+Package: tautulli
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, readynasos (>= 6.1.0), python (>= 2.7)
-Description: PlexPy
+Replaces: plexpy
+Description: tautulli
  A Python based monitoring and tracking tool for Plex Media Server.

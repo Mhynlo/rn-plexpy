@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for plexpy
+# postinst script for tautulli
 #
 # see: dh_installdeb(1)
 
@@ -20,9 +20,10 @@ set -e
 
 case "$1" in
     configure)
-    chown -R admin:admin /apps/plexpy
-
-    event_push app readynasd '<add-s resource-type="LocalApp" resource-id="LocalApp"><LocalApp appname="plexpy" success="1"/></add-s>' 0 0
+    chown -R admin:admin /apps/tautulli
+    if [ -d "/apps/plexpy/app-config/" ]; then
+        cp -r /apps/plexpy/app-config/* /apps/tautulli/app-config/
+    fi
     ;;
     abort-upgrade|abort-remove|abort-deconfigure)
     ;;
@@ -36,7 +37,7 @@ esac
 ###
 # Enable service
 ###
-rn_nml -S plexpy
+rn_nml -S tautulli
 
 
 # dh_installdeb will replace this with shell code automatically

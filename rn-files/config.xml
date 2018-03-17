@@ -1,13 +1,13 @@
-<Application resource-id="plexpy"><!-- 'resource-id' must be AppName -->
-  <Name>PlexPy</Name>
+<Application resource-id="tautulli"><!-- 'resource-id' must be AppName -->
+  <Name>Tautulli</Name>
   <Author>Mhynlo</Author>
-  <Version>1.4.25-ml0</Version>
+  <Version>2.0.22-ml0</Version>
   <RequireReboot>0</RequireReboot>
   <ConfigURL/>
-  <LaunchURL>http://localhost:3033/</LaunchURL>
-  <ReservePort>3033</ReservePort>
-  <InfoURL>https://github.com/drzoidberg33/plexpy/</InfoURL>
-  <DebianPackage>plexpy</DebianPackage>
-  <ServiceName>fvapp-plexpy.service</ServiceName>
+  <LaunchURL>http://localhost:3034/</LaunchURL>
+  <ReservePort>3034</ReservePort>
+  <InfoURL>http://tautulli.com/</InfoURL>
+  <DebianPackage>tautulli</DebianPackage>
+  <ServiceName>fvapp-tautulli.service</ServiceName>
   <Description lang="en-us">A Python based monitoring and tracking tool for Plex Media Server.</Description>
 </Application>

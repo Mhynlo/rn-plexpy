@@ -1,5 +1,5 @@
 #! /bin/sh
-# postrm script for plexpy
+# postrm script for tautulli
 #
 # see: dh_installdeb(1)
 
@@ -18,13 +18,13 @@ set -e
 
 case "$1" in
     purge)
-       rm /apps/plexpy/
+       rm -r /apps/tautulli/
        ;;
     remove)
-        find /apps/plexpy/* -maxdepth 0 -type 'f' | grep -v "app-config" | xargs rm -f
-        find /apps/plexpy/* -maxdepth 0 -type 'd' | grep -v "app-config" | xargs rm -rf
-        if [ -f "/apps/plexpy/.localapp" ]; then
-          rm /apps/plexpy/.localapp
+        find /apps/tautulli/* -maxdepth 0 -type 'f' | grep -v "app-config" | xargs rm -f
+        find /apps/tautulli/* -maxdepth 0 -type 'd' | grep -v "app-config" | xargs rm -rf
+        if [ -f "/apps/tautulli/.localapp" ]; then
+          rm /apps/tautulli/.localapp
         fi
        ;;
     upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

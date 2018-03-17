@@ -1,0 +1,14 @@
+[Unit]
+Description=Service for tautulli app
+
+[Service]
+ExecStart=/usr/bin/python /apps/tautulli/Tautulli.py --daemon --nolaunch --pidfile=/var/run/tautulli.pid --datadir /apps/tautulli/app-config --config /apps/tautulli/app-config/config.ini --port 3034
+Type=forking
+PIDFile=/var/run/tautulli.pid
+TimeoutSec=200
+KillMode=process
+Restart=on-failure
+Nice=18
+
+[Install]
+WantedBy=multi-user.target

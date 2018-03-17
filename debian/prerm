@@ -1,5 +1,5 @@
 #! /bin/sh
-# prerm script for plexpy
+# prerm script for tautulli
 #
 # see: dh_installdeb(1)
 
@@ -17,8 +17,8 @@ set -e
 
 case "$1" in
     remove|upgrade|deconfigure)
-        systemctl stop fvapp-plexpy.service
-        systemctl disable fvapp-plexpy.service || true
+        systemctl stop fvapp-tautulli.service
+        systemctl disable fvapp-tautulli.service || true
         ;;
     failed-upgrade)
         ;;
