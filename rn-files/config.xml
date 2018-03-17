@@ -1,7 +1,7 @@
 <Application resource-id="tautulli"><!-- 'resource-id' must be AppName -->
   <Name>Tautulli</Name>
   <Author>Mhynlo</Author>
-  <Version>2.0.22-ml0</Version>
+  <Version>2.0.22-ml1</Version>
   <RequireReboot>0</RequireReboot>
   <ConfigURL/>
   <LaunchURL>http://localhost:3034/</LaunchURL>
