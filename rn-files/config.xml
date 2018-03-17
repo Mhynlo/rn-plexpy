@@ -9,5 +9,5 @@
   <InfoURL>https://github.com/drzoidberg33/plexpy/</InfoURL>
   <DebianPackage>plexpy</DebianPackage>
   <ServiceName>fvapp-plexpy.service</ServiceName>
-  <Description lang="en-us">A Python based monitoring and tracking tool for Plex Media Server.</Description>
+  <Description lang="en-us">(Replaced by Tautulli) A Python based monitoring and tracking tool for Plex Media Server.</Description>
 </Application>
