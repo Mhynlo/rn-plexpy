@@ -23,6 +23,9 @@ case "$1" in
     chown -R admin:admin /apps/tautulli
     if [ -d "/apps/plexpy/app-config/" ]; then
         cp -r /apps/plexpy/app-config/* /apps/tautulli/app-config/
+        if [ -f /apps/tautulli/app-config/config.ini ]; then
+            sed -i 's!/apps/plexpy/app!/apps/tautulli/app!g' /apps/tautulli/app-config/config.ini
+        fi
     fi
     ;;
     abort-upgrade|abort-remove|abort-deconfigure)
